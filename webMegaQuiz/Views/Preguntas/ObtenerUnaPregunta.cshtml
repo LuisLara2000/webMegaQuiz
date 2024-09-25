@@ -1,0 +1,30 @@
+﻿@model webMegaQuiz.Models.PreguntaModels
+<div class=" card text-primary">
+    <div class="card-header text-center">
+        <h5>PREGUNTA</h5>
+    </div>
+    <div class=" card-body text-primary">
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="ObtenerUnaPregunta">
+                    <div class="form-group">
+                        <label>@Html.DisplayFor(modelItem=>Model.pregunta)</label>
+                    </div>
+                    <div class="form-group">
+                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rCorrecta)</a>
+                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rIncorrecta1)</a>
+                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rIncorrecta2)</a>
+                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rIncorrecta3)</a>
+                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rIncorrecta4)</a>
+                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rIncorrecta5)</a>
+
+                    </div>
+                </form>
+
+>
+            </div>
+        </div>
+    </div>
+
+</div>
+
