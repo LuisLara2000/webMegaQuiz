@@ -1,30 +1,61 @@
-﻿@model webMegaQuiz.Models.PreguntaModels
-<div class=" card text-primary">
-    <div class="card-header text-center">
-        <h5>PREGUNTA</h5>
-    </div>
-    <div class=" card-body text-primary">
-        <div class="row">
-            <div class="col-md-12">
-                <form asp-action="ObtenerUnaPregunta">
-                    <div class="form-group">
-                        <label>@Html.DisplayFor(modelItem=>Model.pregunta)</label>
-                    </div>
-                    <div class="form-group">
-                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rCorrecta)</a>
-                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rIncorrecta1)</a>
-                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rIncorrecta2)</a>
-                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rIncorrecta3)</a>
-                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rIncorrecta4)</a>
-                        <a class="btn btn-outline-success btn-sm">@Html.DisplayFor(modelItem => Model.rIncorrecta5)</a>
+﻿@model webMegaQuiz.Models.PreguntaModels 
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
 
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/webMegaQuiz.styles.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width" />
+    <title>MegaQuiz</title>
+</head>
+<body id="todo" onload="mostrarNumeroDePregunta()">
+    <div>
+
+        <!--ENCABEZADO-->
+        <div id="cEncabezadoObtenerPregunta">
+            <div id="encabezadoObtenerPregunta" >
+                <label>Pregunta <span id="nPreguntaActual"></span> de <span id="nPreguntaTotal"></span></label>
+            </div>
+        </div>
+        <!--PREGUNTA-->
+        <div id="cMostrarPregunta" >
+            <div id="mostrarPregunta" >
+                <h2><label>@Html.DisplayFor(modelItem => Model.pregunta)</label></h2>
+            </div>
+            
+            <!--RESPUESTAS-->
+            <div id="cPreguntas">
+                <form> 
+                    <input type="hidden" name="cantidadPreguntas" value="@ViewBag.cantidadPreguntasTotal" class="" />
+                    <input type="hidden" name="preguntaActual" value="@ViewBag.cantidadPreguntasActual" class="" />
+                    <input type="hidden" name="id" value="@Html.ValueFor(modelItem => Model.idPregunta)" class="" />
+                    <input type="hidden" name="c" value="@Html.ValueFor(modelItem => Model.rCorrecta)" class="" />
+                    <div id="grupoPreguntas">
+                        <div id ="cPregunta">
+                            <button id="pregunta" asp-action="validarRespuesta" name="respuesta" value="@Html.ValueFor(modelItem => Model.rIncorrecta1)" class="btn btn-primary btn-lg">@Html.DisplayFor(modelItem => Model.rIncorrecta1)</button>
+                        </div>
+                        <div id="cPregunta">
+                            <button id="pregunta" asp-action="validarRespuesta" name="respuesta" value="@Html.ValueFor(modelItem => Model.rIncorrecta2)" class="btn btn-primary btn-lg">@Html.DisplayFor(modelItem => Model.rIncorrecta2)</button>
+                        </div>
+                        <div id="cPregunta">
+                            <button id="pregunta" asp-action="validarRespuesta" name="respuesta" value="@Html.ValueFor(modelItem => Model.rIncorrecta3)" class="btn btn-primary btn-lg">@Html.DisplayFor(modelItem => Model.rIncorrecta3)</button>
+                        </div>
+                        <div id="cPregunta">
+                            <button id="pregunta" asp-action="validarRespuesta" name="respuesta" value="@Html.ValueFor(modelItem => Model.rIncorrecta4)" class="btn btn-primary btn-lg">@Html.DisplayFor(modelItem => Model.rIncorrecta4)</button>
+                        </div>
+                        <div id="cPregunta">
+                            <button id="pregunta" asp-action="validarRespuesta" name="respuesta" value="@Html.ValueFor(modelItem => Model.rIncorrecta5)" class="btn btn-primary btn-lg">@Html.DisplayFor(modelItem => Model.rIncorrecta5)</button>
+                        </div>
                     </div>
                 </form>
-
->
             </div>
         </div>
     </div>
-
-</div>
+    <script src="~/js/site.js"></script>
+</body>
+</html>
 

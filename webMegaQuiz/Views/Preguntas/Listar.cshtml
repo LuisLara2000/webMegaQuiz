@@ -1,58 +1,76 @@
 ﻿@model IEnumerable<PreguntaModels>
 
-<div class="card text-primary">
-    <div class="card-header text-center">
-        <h5>Preguntas</h5>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <a asp-action="ObtenerUnaPregunta" asp-route-id=8 class="btn btn-outline-success btn-sm">Empezar</a>
-                    <div class="panel-body">
-                        <table class="table table-hover table-responsive table-striped" id="MyTable">
-                            <!-- El encabezado de cada columna -->
-                            <thead>
-                                <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.idPregunta)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.pregunta)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.estado)
-                                    </th>
-                                </tr>
-                            </thead>
-                            <!-- La informacion de cada fila -->
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.idPregunta)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.pregunta)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.estado)
-                                        </td>
+<!--para que al inicio carge la info-->
+<body onload="obtenerLosIds()">
+    <div class="card text-primary">
+        <div class="card-header text-center">
+            <h5>Preguntas</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <!-- IMPORTANTE -->
+                        <form>
+                            <p>id:<input name="sig" id="preId">@ViewBag.sig</input></p>
+                            <p>total:<h1 id="preTotal"></h1></p>
+                            <p>actual:<h1 id="preActual"></h1></p>
+                            <button asp-action="ObtenerUnaPregunta" class="btn btn-outline-success btn-sm">Empezar</button>
+                        </form>            
+                        <button onclick="inicializarModo(3)">MODO 3 PREGUNTAS</button>
+                        <button onclick="sigPregunta()">SIGUIENTE PREGUNTA</button>
+                        <!-- IMPORTANTE -->
 
+                        <div class="panel-body">
+                            <table class="table table-hover table-responsive table-striped" id="MyTable">
+                                <!-- El encabezado de cada columna -->
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.idPregunta)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.pregunta)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.estado)
+                                        </th>
                                     </tr>
-                                }
-                            </tbody>
-                        </table>
+                                </thead>
+                                <!-- La informacion de cada fila -->
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="idPre">
+                                                @Html.DisplayFor(modelItem => item.idPregunta)
+                                            </td>
+                                        </tr>
+                                    }
+                               
+                                </tbody>
+                            
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div>
+            <button onclick="">guardar</button>
+            <button onload=" hola()"></button>
+        </div>
+        <div>
+            <button onclick="obtenerListaP()">Obtener</button>
+        </div>
+        <div>
+            <button onclick="tresPreguntas()">Tres preguntas</button>
+        </div>
+        <div class="card-footer text-muted text-center">
+            MegaQuiz
+        </div>
+        <script src="~/js/site.js"></script>
     </div>
-    <div class="card-footer text-muted text-center">
-        MegaQuiz
-    </div>
-</div>
-
+</body>
 
 

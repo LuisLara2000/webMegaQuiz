@@ -20,3 +20,106 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#cTitulo {
+    padding: 1em 2em 1em 2em;
+    height: 50vh;
+    width: 100%;
+}
+#titulo {
+    height: 100%;
+    padding: 5em 12em 1em 12em;
+}
+
+
+#opcionesSeleccionaModo {
+    text-align: center;
+}
+#opcionesModo {
+    display: flex;
+    gap: 1em;
+}
+
+#cOpciones {
+    padding: 1em 2em 1em 2em;
+    height: 30vh;
+    width: 100%;
+}
+#modoMenu {
+    padding-bottom: 2em;
+}
+
+#opciones {
+    height: 100%;
+}
+
+#bEmpezar, #bModo3, #bModo5, #bModo10, #bContinuar {
+    width: 100%;
+}
+
+#iCorrecto {
+    height: 100%;
+    width: 50%;
+}
+
+
+/* componentes vistas "correcto" y "incorrecto"*/
+#encabezado {
+    padding: 1em 1em 1em 1em;
+    width: 100%;
+    height: 15vh;
+}
+
+#mensaje {
+    padding: 0.5em 0em 0em 0em;
+    height: 100%;
+}
+#cMensaje {
+    display: flex;
+    justify-content: center;
+
+}
+
+#cTituloC {
+    padding: 1em 1em 1em 1em;
+    height: 60vh;
+    width: 100%;
+}
+
+#tituloC {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cOpcionesC {
+    padding: 1em 2em 1em 2em;
+    height: 15vh;
+    width: 100%;
+}
+/* componentes vista "obtenerPregunta"*/
+
+#cPregunta {
+    padding: 0.25em 2em 0.5em 2em;
+}
+
+#pregunta{
+    width:100%;
+}
+
+#cEncabezadoObtenerPregunta {
+    
+}
+
+#encabezadoObtenerPregunta {
+    padding: 0em 0em 0em 3em;
+}
+
+#mostrarPregunta {
+    padding: 0em 2em 0em 2em;
+}
+
+#todo {
+    padding: 8em 0em 0em 0em;
+}
+

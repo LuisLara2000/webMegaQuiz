@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/webMegaQuiz.styles.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width" />
+    <title>MegaQuiz</title>
+</head>
+<body onload="sigPregunta()">
+    <!--TEMPORAL-->
+    <form>
+        <div hidden>
+            <p>id: <input name="sig" id="preId">@ViewBag.sig</input></p>
+            <p>total:<h1 id="preTotal"></h1></p>
+            <p>actual:<h1 id="preActual"></h1></p>
+        </div>
+        <div id="encabezado">
+            <div id="mensaje">
+                <h1 id="cMensaje">! ERROR ¡</h1>
+            </div>
+        </div>
+        <div id="cTituloC">
+            <div id="tituloC">
+                <img id="iCorrecto" src="~/m.png" />
+            </div>
+        </div>
+        <div id="cOpcionesC">
+            <button id="bContinuar" asp-action="ObtenerUnaPregunta" class="btn btn-primary">Continuar</button>
+        </div>
+    </form>
+    <script src="~/js/site.js"></script>
+</body>
+</html>
