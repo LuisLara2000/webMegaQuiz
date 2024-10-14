@@ -8,8 +8,38 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/webMegaQuiz.styles.css" asp-append-version="true" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Micro+5&family=Pixelify+Sans:wght@400..700&family=Tiny5&display=swap" rel="stylesheet">
+
     <title>Resultados</title>
 </head>
-<body>
+<body onload="resultados()">
+    <div id="contenedorRes">
+        <div id="izquierda">
+            <div class="ttt">RESULTADO</div>
+            <div class="r" id="pc">/</div>
+            <div class="t" id="descripcion"></div>
+        </div>
+        <div id="derecha">
+            <div class="ttt">RANGO</div>
+            <div>
+                <img id="ri" src="~/cc.png" />
+            </div>   
+            <div class="t" id="rango"></div>
+        </div>
+
+    </div>
+    <div id="contenedorAbajo">
+        <form>
+            <button asp-action="Titulo" id="bContinuar" class="btn btn-primary"><span class="tt">VOLVER AL INICIO</span></button>
+        </form>
+    </div>
+    <script src="~/js/site.js"></script>
 </body>
 </html>

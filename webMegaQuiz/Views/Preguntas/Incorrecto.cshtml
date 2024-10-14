@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/webMegaQuiz.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Micro+5&family=Pixelify+Sans:wght@400..700&family=Tiny5&display=swap" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width" />
     <title>MegaQuiz</title>
 </head>
@@ -22,7 +26,7 @@
         </div>
         <div id="encabezado">
             <div id="mensaje">
-                <h1 id="cMensaje">! ERROR ¡</h1>
+                <h1 id="cMensaje" class="ttt">! ERROR ¡</h1>
             </div>
         </div>
         <div id="cTituloC">
@@ -31,7 +35,7 @@
             </div>
         </div>
         <div id="cOpcionesC">
-            <button id="bContinuar" asp-action="ObtenerUnaPregunta" class="btn btn-primary">Continuar</button>
+            <button id="bContinuar" asp-action="ObtenerUnaPregunta" class="btn btn-primary"><span class="tt">CONTINUAR</span></button>
         </div>
     </form>
     <script src="~/js/site.js"></script>

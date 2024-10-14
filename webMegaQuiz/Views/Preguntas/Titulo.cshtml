@@ -13,41 +13,51 @@
         <link rel="stylesheet" href="~/webMegaQuiz.styles.css" asp-append-version="true" />
         <meta name="viewport" content="width=device-width" />
         <title>Titulo</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Micro+5&family=Pixelify+Sans:wght@400..700&family=Tiny5&display=swap" rel="stylesheet">
+
     </head>
     <body onload="ocultar('opciones','modoMenu')">
-        <div id="cTitulo">
-            <div id="titulo">
-                <img src="~/megamanLogo.png" />
-            </div>
-        </div>
-        <div id="cOpciones" >     
-            <div id="modoMenu">
-                <div id="opcionesSeleccionaModo">
-                    <p>Selecciona un modo</p>
-                </div>
-                <div id="opcionesModo">
-                    <button id="bModo3" onclick="inicializarModo(3);desOcultar('opciones');seleccionarBotonModo('bModo3')" class="btn btn-primary">3 preguntas</button>
-                    <button id="bModo5" onclick="inicializarModo(5);desOcultar('opciones');seleccionarBotonModo('bModo5')" class="btn btn-primary">5 preguntas</button>
-                    <button id="bModo10" onclick="inicializarModo(10);desOcultar('opciones');seleccionarBotonModo('bModo10')" class="btn btn-primary">10 preguntas</button>
-                </div>
-            </div>
+        <div id="principal">
 
-            <div id="opciones">
-                <div id="opcionesSeleccionaModo">
-                    <p>¿Estas listo?</p>
+       
+            <div id="cTitulo">
+                <div id="titulo">
+                    <img src="~/megamanLogo.png" />
                 </div>
-                <form>
-                    <div hidden>
-                        <p>id:<input name="sig" id="preId">@ViewBag.sig</input></p>
-                        <p>total:<h1 id="preTotal"></h1></p>
-                        <p>actual:<h1 id="preActual"></h1></p>
+            </div>
+            <div id="cOpciones" >     
+                <div id="modoMenu">
+                    <div id="opcionesSeleccionaModo">
+                        <p class="t">SELECCIONA UN MODO</p>
                     </div>
-                    <button id="bEmpezar" asp-action="ObtenerUnaPregunta" class="btn btn-primary">¡ Vamos !</button>
-                </form>
-            </div>
-           
-        </div>
+                    <div id="opcionesModo">
+                    <button id="bModo3" onclick="inicializarModo(3);desOcultar('opciones');seleccionarBotonModo('bModo3')" class="btn btn-primary"><span class="tt">3 PREGUNTAS</span></button>
+                    <button id="bModo5" onclick="inicializarModo(5);desOcultar('opciones');seleccionarBotonModo('bModo5')" class="btn btn-primary"><span class="tt">5 PREGUNTAS</span></button>
+                    <button id="bModo10" onclick="inicializarModo(10);desOcultar('opciones');seleccionarBotonModo('bModo10')" class="btn btn-primary"><span class="tt">10 PREGUNTAS</span></button>
+                    </div>
+                </div>
 
+                <div id="opciones">
+                    <div id="opcionesSeleccionaModo">
+                        <p class="t">¿ESTAS LISTO?</p>
+                    </div>
+                    <form>
+                        <div hidden>
+                            <p>id:<input name="sig" id="preId">@ViewBag.sig</input></p>
+                            <p>total:<h1 id="preTotal"></h1></p>
+                            <p>actual:<h1 id="preActual"></h1></p>
+                        </div>
+                        <div id="botonE">
+                        <button id="bEmpezar" asp-action="ObtenerUnaPregunta" class="btn btn-primary"><span class="tt">¡¡¡ VAMOS !!!</span></button>
+                        </div>
+                    </form>
+                </div>
+           
+            </div>
+        </div>
         <!--aqui estan las preguntas, pero no se muestran en pantalla-->
         <div hidden>
 

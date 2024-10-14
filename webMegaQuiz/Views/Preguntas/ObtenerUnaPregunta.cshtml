@@ -9,7 +9,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/webMegaQuiz.styles.css" asp-append-version="true" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Micro+5&family=Pixelify+Sans:wght@400..700&family=Tiny5&display=swap" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width" />
+
+
     <title>MegaQuiz</title>
 </head>
 <body id="todo" onload="mostrarNumeroDePregunta()">
@@ -18,13 +25,13 @@
         <!--ENCABEZADO-->
         <div id="cEncabezadoObtenerPregunta">
             <div id="encabezadoObtenerPregunta" >
-                <label>Pregunta <span id="nPreguntaActual"></span> de <span id="nPreguntaTotal"></span></label>
+                <label class="t">PREGUNTA <span id="nPreguntaActual"></span> DE <span id="nPreguntaTotal"></span></label>
             </div>
         </div>
         <!--PREGUNTA-->
         <div id="cMostrarPregunta" >
             <div id="mostrarPregunta" >
-                <h2><label>@Html.DisplayFor(modelItem => Model.pregunta)</label></h2>
+                <h2 class="ttt"><label>@Html.DisplayFor(modelItem => Model.pregunta)</label></h2>
             </div>
             
             <!--RESPUESTAS-->
@@ -34,8 +41,8 @@
                     <input type="hidden" name="preguntaActual" value="@ViewBag.cantidadPreguntasActual" class="" />
                     <input type="hidden" name="id" value="@Html.ValueFor(modelItem => Model.idPregunta)" class="" />
                     <input type="hidden" name="c" value="@Html.ValueFor(modelItem => Model.rCorrecta)" class="" />
-                    <div id="grupoPreguntas">
-                        <div id ="cPregunta">
+                    <div id="grupoPreguntas" class="tt">
+                        <div id ="cPregunta" >
                             <button id="pregunta" asp-action="validarRespuesta" name="respuesta" value="@Html.ValueFor(modelItem => Model.rIncorrecta1)" class="btn btn-primary btn-lg">@Html.DisplayFor(modelItem => Model.rIncorrecta1)</button>
                         </div>
                         <div id="cPregunta">

@@ -35,7 +35,7 @@ namespace webMegaQuiz
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Preguntas}/{action=Titulo}/{id?}");
+                pattern: "{controller=Preguntas}/{action=Resultados}/{id?}");
 
             app.Run();
         }

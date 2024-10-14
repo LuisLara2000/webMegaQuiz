@@ -6,7 +6,7 @@
 var listaPreguntas = [];
 var cantidadTotalg = 0;
 var actualg = 0;// en relacion a la cantidad total
-
+var correctas = 0;
 
 
 // cada que inicia la pagina de listar, se llama a esta funcion
@@ -93,7 +93,7 @@ function sigPregunta() {
 
 // cada que se presione el boton de seleccionar modo
 function inicializarModo(modo) {
-    
+    localStorage.setItem("c",parseInt(0));
     if (parseInt(modo) == 3) {
         localStorage.setItem("canTotalPreguntas", parseInt(3));
         localStorage.setItem("actual", parseInt(1));
@@ -191,4 +191,62 @@ function seleccionarBotonModo(botonSeleccionado) {
     document.getElementById("bModo5").style.backgroundColor = "blue";
     document.getElementById("bModo10").style.backgroundColor = "blue";
     document.getElementById(botonSeleccionado).style.backgroundColor = "red";
+}
+
+function respuestaCorrecta() {
+    correctas = parseInt(localStorage.getItem("c"));
+    localStorage.setItem("c", correctas + 1) ;
+}
+
+function resultados() {
+    // RECUPERO LA INFO
+    correctas = parseInt(localStorage.getItem("c"));
+    cantidadTotalg = parseInt(localStorage.getItem("canTotalPreguntas"));
+
+    if (cantidadTotalg == 3) {
+        if (correctas == 3) {
+            document.getElementById("rango").innerHTML = "MINI MEGAMANIACO";
+            document.getElementById("descripcion").innerHTML = "TUS CONOCIMIENTOS EN MEGAMAN SON MINI BUENOS";
+        }
+        else if (correctas == 2) {
+            document.getElementById("rango").innerHTML = "CONOCEDOR BASICO MEGAMAN";
+            document.getElementById("descripcion").innerHTML = "TE FALTA CONOCER MAS EL JUEGO";
+        }
+        else {
+            document.getElementById("rango").innerHTML = "NO FAN DE MEGAMAN";
+            document.getElementById("descripcion").innerHTML = "CREO QUE NUNCA HAS JUGADO EL JUEGO XD";
+        }
+        document.getElementById("pc").innerHTML = correctas.toString() + "/" + cantidadTotalg.toString();
+    }
+    if (cantidadTotalg == 5) {
+        if (correctas == 5) {
+            document.getElementById("rango").innerHTML = "MEGAMANIACO";
+            document.getElementById("descripcion").innerHTML = "SE NOTA QUE TE GUSTA JUGAR MEGAMAN, BIEN HECHO";
+        }
+        else if (correctas > 2 && correctas <= 4) {
+            document.getElementById("rango").innerHTML = "MEGAMAN FAN BASICO";
+            document.getElementById("descripcion").innerHTML = "CONOCES LO SUFICIENTE PARA PODER SER FACILMENTE UN FAN DE MEGAMAN";
+        }
+        else {
+            document.getElementById("rango").innerHTML = "NO FAN DE MEGAMAN";
+            document.getElementById("descripcion").innerHTML = "CREO QUE NUNCA HAS JUGADO EL JUEGO XD";
+        }
+        document.getElementById("pc").innerHTML = correctas.toString() + "/" + cantidadTotalg.toString();
+    }
+    else{
+        if (correctas == 10) {
+            document.getElementById("rango").innerHTML = "ULTRA MEGAMANIACO";
+            document.getElementById("descripcion").innerHTML = "TIENES CONOCIMIENTO AVANZADO DEL JUEGO, TE GANASTE EL RESPETO DE ESTA PAGINA :)";
+        }
+        else if (correctas > 4 && correctas <= 9) {
+            document.getElementById("rango").innerHTML = "MEGAMAN FAN";
+            document.getElementById("descripcion").innerHTML = "LLEGASTE LEJOS NO CUALQUIERA PODRIA CONTESTAR TANTAS PREGUNTAS, SIGUE ASI PARA MEJORAR";
+        }
+        else {
+            document.getElementById("rango").innerHTML = "NO FAN DE MEGAMAN";
+            document.getElementById("descripcion").innerHTML = "CREO QUE NUNCA HAS JUGADO EL JUEGO XD";
+        }
+        document.getElementById("pc").innerHTML = correctas.toString() + "/" + cantidadTotalg.toString();
+    }
+   
 }

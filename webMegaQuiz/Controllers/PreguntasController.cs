@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;
 using webMegaQuiz.Models;
+using System.Security.Policy;
 
 namespace webMegaQuiz.Controllers
 {
@@ -85,42 +86,42 @@ namespace webMegaQuiz.Controllers
                     PreguntaModels rDesordenadas = new PreguntaModels();
                     Random random = new Random();
                     // obtengo las respuestas ordenadas
-                    rOriginal.Add(pregunta.rCorrecta);
-                    rOriginal.Add(pregunta.rIncorrecta1);
-                    rOriginal.Add(pregunta.rIncorrecta2);
-                    rOriginal.Add(pregunta.rIncorrecta3);
-                    rOriginal.Add(pregunta.rIncorrecta4);
-                    respuestaActualCorrecta = pregunta.rCorrecta;
+                    rOriginal.Add(pregunta.rCorrecta.ToUpper());
+                    rOriginal.Add(pregunta.rIncorrecta1.ToUpper());
+                    rOriginal.Add(pregunta.rIncorrecta2.ToUpper());
+                    rOriginal.Add(pregunta.rIncorrecta3.ToUpper());
+                    rOriginal.Add(pregunta.rIncorrecta4.ToUpper());
+                    respuestaActualCorrecta = pregunta.rCorrecta.ToUpper();
                     idPreguntaActual = pregunta.idPregunta;
                     for (int i = 1; i <= 5; i++)
                     {
                         switch (i)
                         {
                             case 1:
-                                rDesordenadas.rIncorrecta1 = rOriginal[random.Next(rOriginal.Count)];
+                                rDesordenadas.rIncorrecta1 = rOriginal[random.Next(rOriginal.Count)].ToUpper();
                                 rOriginal.Remove(rDesordenadas.rIncorrecta1);
                                 break;
                             case 2:
-                                rDesordenadas.rIncorrecta2 = rOriginal[random.Next(rOriginal.Count)];
+                                rDesordenadas.rIncorrecta2 = rOriginal[random.Next(rOriginal.Count)].ToUpper();
                                 rOriginal.Remove(rDesordenadas.rIncorrecta2);
                                 break;
                             case 3:
-                                rDesordenadas.rIncorrecta3 = rOriginal[random.Next(rOriginal.Count)];
+                                rDesordenadas.rIncorrecta3 = rOriginal[random.Next(rOriginal.Count)].ToUpper();
                                 rOriginal.Remove(rDesordenadas.rIncorrecta3);
                                 break;
                             case 4:
-                                rDesordenadas.rIncorrecta4 = rOriginal[random.Next(rOriginal.Count)];
+                                rDesordenadas.rIncorrecta4 = rOriginal[random.Next(rOriginal.Count)].ToUpper();
                                 rOriginal.Remove(rDesordenadas.rIncorrecta4);
                                 break;
                             case 5:
-                                rDesordenadas.rIncorrecta5 = rOriginal[random.Next(rOriginal.Count)];
+                                rDesordenadas.rIncorrecta5 = rOriginal[random.Next(rOriginal.Count)].ToUpper();
                                 rOriginal.Remove(rDesordenadas.rIncorrecta5);
                                 break;
                         }
                     }
                     // agrego el valor de la pregunta
-                    rDesordenadas.pregunta = pregunta.pregunta;
-                    rDesordenadas.rCorrecta = pregunta.rCorrecta;
+                    rDesordenadas.pregunta = pregunta.pregunta.ToUpper();
+                    rDesordenadas.rCorrecta = pregunta.rCorrecta.ToUpper();
                     rDesordenadas.idPregunta = pregunta.idPregunta;
                     return View(rDesordenadas);
                 }
@@ -128,12 +129,13 @@ namespace webMegaQuiz.Controllers
                 {
                     await Listar();
                     return View("titulo");
+                    
                 }
             }
             else
             {
                 await Listar();
-                return View("titulo");
+                return View("Resultados");
             }
 
             
@@ -231,7 +233,7 @@ namespace webMegaQuiz.Controllers
             }
             else
             {
-                return View("titulo");
+                return View("Resultados");
             }
         }
 
@@ -262,5 +264,9 @@ namespace webMegaQuiz.Controllers
             
         }
         
+        public IActionResult Resultados()
+        {
+            return View();
+        }
     }
 }
